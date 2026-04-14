@@ -1,9 +1,9 @@
 const PAGE_OPTIONS = [
-  { id: "page-1", label: "1ページ", pages: 1, totalPrice: 100000, description: "基本制作費のみ。" },
-  { id: "page-2", label: "2ページ", pages: 2, totalPrice: 130000, description: "1ページ追加。" },
-  { id: "page-3", label: "3ページ", pages: 3, totalPrice: 160000, description: "2ページ追加。" },
-  { id: "page-4", label: "4ページ", pages: 4, totalPrice: 190000, description: "3ページ追加。" },
-  { id: "page-5", label: "5ページ", pages: 5, totalPrice: 220000, description: "4ページ追加。" }
+  { id: "page-1", label: "1ページ構成", pages: 1, totalPrice: 100000, description: "LPや縦長の1ページ構成向け。" },
+  { id: "page-2", label: "2ページ構成", pages: 2, totalPrice: 130000, description: "TOP + 1ページ程度の小規模構成。" },
+  { id: "page-3", label: "3ページ構成", pages: 3, totalPrice: 160000, description: "TOP + 2ページ程度の構成。" },
+  { id: "page-4", label: "4ページ構成", pages: 4, totalPrice: 190000, description: "TOP + 3ページ程度の構成。" },
+  { id: "page-5", label: "5ページ構成", pages: 5, totalPrice: 220000, description: "TOP + 4ページ程度の標準構成。" }
 ];
 
 const FEATURES = [
@@ -78,6 +78,10 @@ function initializeState() {
 
 function yen(value) {
   return `¥${Math.round(value).toLocaleString("ja-JP")}`;
+}
+
+function isInstagramInAppBrowser() {
+  return /Instagram/i.test(window.navigator.userAgent);
 }
 
 function getSelectedPageOption() {
@@ -404,25 +408,199 @@ function fillPrintSheet() {
   document.getElementById("printMessage").textContent = buildEstimateText();
 }
 
+function getPrintDocumentStyles() {
+  return `
+    @page { size: A4 portrait; margin: 10mm; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #111111;
+      font-family: "Zen Kaku Gothic Antique", sans-serif;
+    }
+    body { padding: 10mm; }
+    .print-sheet {
+      width: 100%;
+      max-width: 190mm;
+      color: #111111;
+    }
+    .print-sheet__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid #111111;
+      padding-bottom: 14px;
+    }
+    .print-sheet__brand,
+    .print-sheet__section-title {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #5d6a7b;
+    }
+    .print-sheet__title {
+      margin: 8px 0 0;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+    .print-sheet__meta,
+    .print-sheet__note {
+      font-size: 12px;
+      color: #5d6a7b;
+      line-height: 1.8;
+    }
+    .print-sheet__total {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border: 1px solid #111111;
+      background:
+        linear-gradient(135deg, rgba(17, 17, 17, 0.04), transparent 45%),
+        #fbfbfb;
+      page-break-inside: avoid;
+    }
+    .print-sheet__total-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #5d6a7b;
+    }
+    .print-sheet__total-value {
+      margin-top: 10px;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+    .print-sheet__total-sub {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #5d6a7b;
+    }
+    .print-sheet__section {
+      margin-top: 16px;
+      page-break-inside: avoid;
+    }
+    .print-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+      border: 1px solid #d8dee6;
+    }
+    .print-table thead th {
+      background: #f3f4f6;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #525f70;
+    }
+    .print-table th,
+    .print-table td {
+      border-right: 1px solid #d8dee6;
+      border-bottom: 1px solid #d8dee6;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .print-table th:last-child,
+    .print-table td:last-child {
+      border-right: none;
+    }
+    .print-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .print-table tbody td:nth-child(1) {
+      width: 28%;
+      font-weight: 500;
+    }
+    .print-table tbody td:nth-child(2) {
+      width: 48%;
+      color: #5d6a7b;
+    }
+    .print-table tbody td:nth-child(3) {
+      width: 24%;
+      text-align: right;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .print-sheet__message {
+      min-height: 34mm;
+      max-height: 88mm;
+      overflow: hidden;
+      padding: 12px;
+      border: 1px solid #d8dee6;
+      background: #fbfbfb;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-size: 11px;
+    }
+    .print-sheet__note {
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.6;
+      border-top: 1px solid #d8dee6;
+      padding-top: 8px;
+    }
+  `;
+}
+
 function downloadEstimatePdf() {
+  if (isInstagramInAppBrowser()) {
+    window.alert("Instagram内ブラウザではPDF保存が不安定な場合があります。右上メニューからChromeまたはSafariで開いて、PDF保存をお試しください。");
+    return;
+  }
+
   fillPrintSheet();
   const sheet = document.getElementById("printSheet");
-  sheet.classList.add("is-exporting");
+  const frame = document.createElement("iframe");
+  frame.style.position = "fixed";
+  frame.style.right = "0";
+  frame.style.bottom = "0";
+  frame.style.width = "0";
+  frame.style.height = "0";
+  frame.style.border = "0";
+  frame.setAttribute("aria-hidden", "true");
+  document.body.appendChild(frame);
 
-  const options = {
-    margin: 0,
-    filename: `noft-estimate-${new Date().toISOString().slice(0, 10)}.pdf`,
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+  const runPrint = () => {
+    setTimeout(() => {
+      frame.contentWindow.focus();
+      frame.contentWindow.print();
+      setTimeout(() => {
+        if (document.body.contains(frame)) {
+          document.body.removeChild(frame);
+        }
+      }, 1000);
+    }, 300);
   };
 
-  const pdfRunner = window.html2pdf ? window.html2pdf().set(options).from(sheet).save() : Promise.reject(new Error("html2pdf unavailable"));
-  pdfRunner.finally(() => {
-    sheet.classList.remove("is-exporting");
-  }).catch(() => {
-    showToast("PDF保存に失敗しました。");
-  });
+  frame.onload = runPrint;
+
+  const printDocument = frame.contentWindow.document;
+  printDocument.open();
+  printDocument.write(`
+    <!DOCTYPE html>
+    <html lang="ja">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>NOFT 概算見積書</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700&display=swap" rel="stylesheet">
+      <style>${getPrintDocumentStyles()}</style>
+    </head>
+    <body>
+      ${sheet.outerHTML}
+    </body>
+    </html>
+  `);
+  printDocument.close();
+  setTimeout(runPrint, 500);
 }
 
 function resetAll() {
