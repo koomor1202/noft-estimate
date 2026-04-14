@@ -316,12 +316,47 @@ function buildEstimateText() {
   return lines.join("\n");
 }
 
-async function copyEstimateText() {
+function fallbackCopyText(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "-9999px";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+
+  let copied = false;
   try {
-    await navigator.clipboard.writeText(buildEstimateText());
+    copied = document.execCommand("copy");
+  } catch (error) {
+    copied = false;
+  }
+
+  document.body.removeChild(textarea);
+  return copied;
+}
+
+async function copyEstimateText() {
+  const text = buildEstimateText();
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const copied = fallbackCopyText(text);
+      if (!copied) {
+        throw new Error("Fallback copy failed.");
+      }
+    }
     showToast("見積り内容をコピーしました。");
     return true;
   } catch (error) {
+    const copied = fallbackCopyText(text);
+    if (copied) {
+      showToast("見積り内容をコピーしました。");
+      return true;
+    }
     showToast("コピーに失敗しました。");
     return false;
   }
@@ -329,17 +364,21 @@ async function copyEstimateText() {
 
 async function openLineFlow() {
   const copied = await copyEstimateText();
-  if (copied) {
-    showToast("見積り内容をコピーしました。LINEに貼り付けてご相談ください。");
+  if (!copied) {
+    window.alert("自動コピーに失敗しました。先に「見積り内容をコピー」を押してから、LINEでご相談ください。");
+    return;
   }
+  showToast("見積り内容をコピーしました。LINEに貼り付けてご相談ください。");
   window.open(LINE_URL, "_blank", "noopener");
 }
 
 async function openContactFlow() {
   const copied = await copyEstimateText();
-  if (copied) {
-    showToast("見積り内容をコピーしました。お問い合わせ欄に貼り付けてお送りください。");
+  if (!copied) {
+    window.alert("自動コピーに失敗しました。先に「見積り内容をコピー」を押してから、お問い合わせへ進んでください。");
+    return;
   }
+  showToast("見積り内容をコピーしました。お問い合わせ欄に貼り付けてお送りください。");
   window.open(CONTACT_URL, "_blank", "noopener");
 }
 
@@ -363,6 +402,27 @@ function fillPrintSheet() {
   document.getElementById("printTotal").textContent = yen(estimate.total);
   document.getElementById("printPlan").textContent = `${estimate.pageOption.label} / 税抜 ${yen(estimate.subtotal)} / 消費税 ${yen(estimate.tax)}`;
   document.getElementById("printMessage").textContent = buildEstimateText();
+}
+
+function downloadEstimatePdf() {
+  fillPrintSheet();
+  const sheet = document.getElementById("printSheet");
+  sheet.classList.add("is-exporting");
+
+  const options = {
+    margin: 0,
+    filename: `noft-estimate-${new Date().toISOString().slice(0, 10)}.pdf`,
+    image: { type: "jpeg", quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+  };
+
+  const pdfRunner = window.html2pdf ? window.html2pdf().set(options).from(sheet).save() : Promise.reject(new Error("html2pdf unavailable"));
+  pdfRunner.finally(() => {
+    sheet.classList.remove("is-exporting");
+  }).catch(() => {
+    showToast("PDF保存に失敗しました。");
+  });
 }
 
 function resetAll() {
@@ -391,8 +451,7 @@ function syncStickySummaryVisibility() {
 }
 
 document.getElementById("downloadPdfBtn").addEventListener("click", () => {
-  fillPrintSheet();
-  window.print();
+  downloadEstimatePdf();
 });
 
 document.getElementById("copyEstimateBtn").addEventListener("click", () => {

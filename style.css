@@ -541,6 +541,13 @@ textarea {
   height: 100%;
 }
 
+.action-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
 .toast {
   position: fixed;
   left: 50%;
@@ -627,6 +634,155 @@ textarea {
 
 .print-sheet {
   display: none;
+}
+
+.print-sheet.is-exporting {
+  display: block;
+  position: fixed;
+  left: -9999px;
+  top: 0;
+  width: 190mm;
+  padding: 0;
+  color: #111111;
+  background: #ffffff;
+  font-family: "Zen Kaku Gothic Antique", sans-serif;
+}
+
+.print-sheet.is-exporting .print-sheet__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 14px;
+}
+
+.print-sheet.is-exporting .print-sheet__brand,
+.print-sheet.is-exporting .print-sheet__section-title {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5d6a7b;
+}
+
+.print-sheet.is-exporting .print-sheet__title {
+  margin: 8px 0 0;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.print-sheet.is-exporting .print-sheet__meta,
+.print-sheet.is-exporting .print-sheet__note {
+  font-size: 12px;
+  color: #5d6a7b;
+  line-height: 1.8;
+}
+
+.print-sheet.is-exporting .print-sheet__total {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border: 1px solid #111111;
+  background:
+    linear-gradient(135deg, rgba(17, 17, 17, 0.04), transparent 45%),
+    #fbfbfb;
+}
+
+.print-sheet.is-exporting .print-sheet__total-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5d6a7b;
+}
+
+.print-sheet.is-exporting .print-sheet__total-value {
+  margin-top: 10px;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.print-sheet.is-exporting .print-sheet__total-sub {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #5d6a7b;
+}
+
+.print-sheet.is-exporting .print-sheet__section {
+  margin-top: 16px;
+}
+
+.print-sheet.is-exporting .print-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  border: 1px solid #d8dee6;
+}
+
+.print-sheet.is-exporting .print-table thead th {
+  background: #f3f4f6;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #525f70;
+}
+
+.print-sheet.is-exporting .print-table th,
+.print-sheet.is-exporting .print-table td {
+  border-right: 1px solid #d8dee6;
+  border-bottom: 1px solid #d8dee6;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.print-sheet.is-exporting .print-table th:last-child,
+.print-sheet.is-exporting .print-table td:last-child {
+  border-right: none;
+}
+
+.print-sheet.is-exporting .print-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.print-sheet.is-exporting .print-table tbody td:nth-child(1) {
+  width: 28%;
+  font-weight: 500;
+}
+
+.print-sheet.is-exporting .print-table tbody td:nth-child(2) {
+  width: 48%;
+  color: #5d6a7b;
+}
+
+.print-sheet.is-exporting .print-table tbody td:nth-child(3) {
+  width: 24%;
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.print-sheet.is-exporting .print-sheet__message {
+  min-height: 34mm;
+  max-height: 88mm;
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid #d8dee6;
+  background: #fbfbfb;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 11px;
+}
+
+.print-sheet.is-exporting .print-sheet__note {
+  margin-top: 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  border-top: 1px solid #d8dee6;
+  padding-top: 8px;
 }
 
 @media (max-width: 980px) {
