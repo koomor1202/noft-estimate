@@ -13,12 +13,11 @@
 <body>
   <div class="page-shell">
     <header class="hero">
-      <div class="hero__eyebrow">NOFT Design Works</div>
-      <h1 class="hero__title">Web制作 見積りシミュレーション</h1>
-      <p class="hero__lead">
-        基本制作費をベースに、必要な項目を選ぶだけで概算金額を確認できます。
-        保存はPDF、相談はLINEやお問い合わせからそのまま進められます。
-      </p>
+      <div class="hero__inner">
+        <div class="hero__eyebrow">NOFT Design Works</div>
+        <h1 class="hero__title">Web制作 見積りシミュレーション</h1>
+        <p class="hero__lead">必要な項目を選ぶだけで、概算金額をすぐに確認できます。</p>
+      </div>
     </header>
 
     <main class="layout">
@@ -31,26 +30,23 @@
           <div class="panel__body panel__body--stack">
             <div class="section-block">
               <div class="section-block__head">
-                <h3 class="section-block__title">基本制作費</h3>
-                <p class="section-block__desc">
-                  オリジナルなサイトを制作するための基本制作費です。
-                  お問い合わせフォーム・レスポンシブ対応・簡易CMS（お知らせ / ブログ）を含みます。
-                </p>
+                <h3 class="section-block__title">基本制作費 <span class="section-block__title-jp">Base</span></h3>
+                <p class="section-block__desc">お問い合わせフォーム / レスポンシブ対応 / 簡易CMS</p>
               </div>
               <div class="plan-grid plan-grid--single">
                 <button type="button" class="plan-card is-active plan-card--static">
                   <span class="plan-card__chip">ベース</span>
                   <h3 class="plan-card__title">基本制作費</h3>
                   <div class="plan-card__price">¥100,000</div>
-                  <p class="plan-card__lead">制作を進めるうえで必ず必要になる基本の費用です。</p>
+                  <p class="plan-card__lead">オリジナルサイト制作の基本費用</p>
                 </button>
               </div>
             </div>
 
             <div class="section-block">
               <div class="section-block__head">
-                <h3 class="section-block__title">サイト規模の目安</h3>
-                <p class="section-block__desc">迷う場合は、近いサイト規模をお選びください。正式なお見積りで内容に合わせて調整します。</p>
+                <h3 class="section-block__title">サイト規模 <span class="section-block__title-jp">Scale</span></h3>
+                <p class="section-block__desc">近い構成を選択</p>
               </div>
               <div id="pageCountList" class="plan-grid"></div>
             </div>
@@ -65,24 +61,24 @@
           <div class="panel__body panel__body--stack">
             <div class="section-block">
               <div class="section-block__head">
-                <h3 class="section-block__title">機能追加</h3>
-                <p class="section-block__desc">簡易CMS（お知らせ / ブログ）は基本制作費に含まれます。必要な機能だけ追加してください。</p>
+                <h3 class="section-block__title">機能追加 <span class="section-block__title-jp">Function</span></h3>
+                <p class="section-block__desc">必要な機能のみ追加</p>
               </div>
               <div id="featureList" class="option-list"></div>
             </div>
 
             <div class="section-block">
               <div class="section-block__head">
-                <h3 class="section-block__title">追加オプション</h3>
-                <p class="section-block__desc">ページ追加や文章作成など、必要なものだけ加算できます。</p>
+                <h3 class="section-block__title">追加項目 <span class="section-block__title-jp">Option</span></h3>
+                <p class="section-block__desc">追加ページ・文章整理など</p>
               </div>
               <div id="addonList" class="option-list"></div>
             </div>
 
             <div class="section-block">
               <div class="section-block__head">
-                <h3 class="section-block__title">別途費用</h3>
-                <p class="section-block__desc">独自ドメインを利用する場合のみ、STUDIO利用料と新規ドメイン取得費を選べます。</p>
+                <h3 class="section-block__title">別途費用 <span class="section-block__title-jp">Extra</span></h3>
+                <p class="section-block__desc">独自ドメイン利用・STUDIO利用料</p>
               </div>
               <div id="extraList" class="option-list"></div>
             </div>
@@ -92,7 +88,7 @@
         <section class="panel panel--main">
           <div class="panel__head">
             <span class="panel__step">Step 3</span>
-            <h2 class="panel__title">ご相談内容の準備</h2>
+            <h2 class="panel__title">ご相談内容 <span class="section-block__title-jp">Contact</span></h2>
           </div>
           <div class="panel__body panel__body--stack">
             <label class="field">
@@ -107,15 +103,12 @@
               <span class="field__label">補足したい内容</span>
               <textarea id="customerMessage" class="field__textarea" rows="5" placeholder="参考にしてほしいサイト、公開希望時期、相談したいことなど"></textarea>
             </label>
-            <p class="notice">
-              LINEまたはお問い合わせのボタンを押すと、入力内容と見積り結果が自動でコピーされます。移動先でそのまま貼り付けてご相談ください。
-            </p>
           </div>
         </section>
         <section class="panel panel--result" id="resultPanel">
           <div class="panel__head panel__head--summary">
             <span class="panel__step">Result</span>
-            <h2 class="panel__title">概算見積り</h2>
+            <h2 class="panel__title">概算見積り <span class="section-block__title-jp">Estimate</span></h2>
           </div>
           <div class="panel__body panel__body--stack">
             <div class="summary-card">
@@ -130,9 +123,7 @@
               <div id="breakdownList" class="breakdown__list"></div>
             </div>
 
-            <div class="notice">
-              本シミュレーションは概算です。正式なお見積りはヒアリング後にご案内します。
-            </div>
+            <div class="notice">正式なお見積りはヒアリング後にご案内します。</div>
 
             <div class="action-stack">
               <button id="downloadPdfBtn" class="action-btn action-btn--primary" type="button">
@@ -161,7 +152,7 @@
                     <circle cx="15" cy="11.1" r="1.1" fill="#ffffff"/>
                   </svg>
                 </span>
-                <span>見積り内容をコピーしてLINEで相談する</span>
+                <span>LINEで相談する</span>
               </button>
               <button id="contactBtn" class="action-btn action-btn--contact" type="button">
                 <span class="action-btn__icon" aria-hidden="true">
@@ -170,7 +161,7 @@
                     <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
                   </svg>
                 </span>
-                <span>見積り内容をコピーしてお問い合わせへ進む</span>
+                <span>お問い合わせへ進む</span>
               </button>
               <button id="resetBtn" class="action-btn action-btn--ghost" type="button">
                 <span class="action-btn__icon" aria-hidden="true">
@@ -182,7 +173,7 @@
                 <span>内容をリセット</span>
               </button>
             </div>
-            <p class="action-note">LINE と お問い合わせ のボタンには自動コピーも含まれます。別でコピーしなくても大丈夫です。</p>
+            <p class="action-note">LINE・お問い合わせはボタンを押すと内容が自動でコピーされます。移動先でそのまま貼り付けてご相談ください。</p>
           </div>
         </section>
       </section>
@@ -196,7 +187,7 @@
         <span class="sticky-summary__plan" id="stickySummaryPlan"></span>
       </div>
       <div class="sticky-summary__price" id="stickySummaryTotal">¥0</div>
-      <button id="jumpToResultBtn" class="sticky-summary__btn" type="button">結果を見る</button>
+      <button id="jumpToResultBtn" class="sticky-summary__btn" type="button">見積り詳細を見る</button>
     </div>
   </div>
 

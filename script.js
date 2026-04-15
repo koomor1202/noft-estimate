@@ -1,9 +1,9 @@
 const PAGE_OPTIONS = [
-  { id: "page-1", label: "1ページ構成", pages: 1, totalPrice: 100000, description: "LPや縦長の1ページ構成向け。" },
-  { id: "page-2", label: "2ページ構成", pages: 2, totalPrice: 130000, description: "TOP + 1ページ程度の小規模構成。" },
-  { id: "page-3", label: "3ページ構成", pages: 3, totalPrice: 160000, description: "TOP + 2ページ程度の構成。" },
-  { id: "page-4", label: "4ページ構成", pages: 4, totalPrice: 190000, description: "TOP + 3ページ程度の構成。" },
-  { id: "page-5", label: "5ページ構成", pages: 5, totalPrice: 220000, description: "TOP + 4ページ程度の標準構成。" }
+  { id: "page-1", label: "1ページ構成", pages: 1, totalPrice: 100000, description: "LPや縦長の1ページ向け" },
+  { id: "page-2", label: "2ページ構成", pages: 2, totalPrice: 130000, description: "小規模サイト向け" },
+  { id: "page-3", label: "3ページ構成", pages: 3, totalPrice: 160000, description: "標準構成の目安" },
+  { id: "page-4", label: "4ページ構成", pages: 4, totalPrice: 190000, description: "情報量がやや多め" },
+  { id: "page-5", label: "5ページ構成", pages: 5, totalPrice: 220000, description: "しっかり載せたい方向け" }
 ];
 
 const FEATURES = [
