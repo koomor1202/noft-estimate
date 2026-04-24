@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no,email=no,address=no">
-  <title>NOFT 隕狗ｩ阪ｊ繧ｷ繝溘Η繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ</title>
+  <title>NOFT 見積りシミュレーション</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -23,176 +23,174 @@
         </nav>
       </div>
     </header>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero__inner">
+        <div class="hero__eyebrow">NOFT Design Works</div>
+        <h1 class="hero__title">Web制作 見積りシミュレーション</h1>
+        <p class="hero__lead">必要な項目を選ぶだけで、概算金額をすぐに確認できます。</p>
+      </div>
+    </header>
 
-    <div class="page-shell">
-      <header class="hero">
-        <div class="hero__inner">
-          <div class="hero__eyebrow">NOFT Design Works</div>
-          <h1 class="hero__title">Web蛻ｶ菴・隕狗ｩ阪ｊ繧ｷ繝溘Η繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ</h1>
-          <p class="hero__lead">蠢・ｦ√↑鬆・岼繧帝∈縺ｶ縺縺代〒縲∵ｦらｮ鈴≡鬘阪ｒ縺吶＄縺ｫ遒ｺ隱阪〒縺阪∪縺吶・/p>
-        </div>
-      </header>
-
-      <main class="layout">
-        <section class="main-column">
-          <section class="panel panel--main">
-            <div class="panel__head">
-              <span class="panel__step">Step 1</span>
-              <h2 class="panel__title">蝓ｺ譛ｬ蛻ｶ菴懆ｲｻ縺ｨ繝壹・繧ｸ謨ｰ</h2>
-            </div>
-            <div class="panel__body panel__body--stack">
-              <div class="section-block">
-                <div class="section-block__head">
-                  <h3 class="section-block__title">蝓ｺ譛ｬ蛻ｶ菴懆ｲｻ <span class="section-block__title-jp">Base</span></h3>
-                  <p class="section-block__desc">縺雁撫縺・粋繧上○繝輔か繝ｼ繝 / 繝ｬ繧ｹ繝昴Φ繧ｷ繝門ｯｾ蠢・/ 邁｡譏鼎MS</p>
-                </div>
-                <div class="plan-grid plan-grid--single">
-                  <button type="button" class="plan-card is-active plan-card--static">
-                    <span class="plan-card__chip">繝吶・繧ｹ</span>
-                    <h3 class="plan-card__title">蝓ｺ譛ｬ蛻ｶ菴懆ｲｻ</h3>
-                    <div class="plan-card__price">ﾂ･100,000</div>
-                    <p class="plan-card__lead">繧ｪ繝ｪ繧ｸ繝翫Ν繧ｵ繧､繝亥宛菴懊・蝓ｺ譛ｬ雋ｻ逕ｨ</p>
-                  </button>
-                </div>
+    <main class="layout">
+      <section class="main-column">
+        <section class="panel panel--main">
+          <div class="panel__head">
+            <span class="panel__step">Step 1</span>
+            <h2 class="panel__title">基本制作費とページ数</h2>
+          </div>
+          <div class="panel__body panel__body--stack">
+            <div class="section-block">
+              <div class="section-block__head">
+                <h3 class="section-block__title">基本制作費 <span class="section-block__title-jp">Base</span></h3>
+                <p class="section-block__desc">お問い合わせフォーム / レスポンシブ対応 / 簡易CMS</p>
               </div>
-
-              <div class="section-block">
-                <div class="section-block__head">
-                  <h3 class="section-block__title">繧ｵ繧､繝郁ｦ乗ｨ｡ <span class="section-block__title-jp">Scale</span></h3>
-                  <p class="section-block__desc">霑代＞讒区・繧帝∈謚・/p>
-                </div>
-                <div id="pageCountList" class="plan-grid"></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="panel panel--main">
-            <div class="panel__head">
-              <span class="panel__step">Step 2</span>
-              <h2 class="panel__title">讖溯・縺ｨ霑ｽ蜉鬆・岼</h2>
-            </div>
-            <div class="panel__body panel__body--stack">
-              <div class="section-block">
-                <div class="section-block__head">
-                  <h3 class="section-block__title">讖溯・霑ｽ蜉 <span class="section-block__title-jp">Function</span></h3>
-                  <p class="section-block__desc">蠢・ｦ√↑讖溯・縺ｮ縺ｿ霑ｽ蜉</p>
-                </div>
-                <div id="featureList" class="option-list"></div>
-              </div>
-
-              <div class="section-block">
-                <div class="section-block__head">
-                  <h3 class="section-block__title">霑ｽ蜉鬆・岼 <span class="section-block__title-jp">Option</span></h3>
-                  <p class="section-block__desc">霑ｽ蜉繝壹・繧ｸ繝ｻ譁・ｫ謨ｴ逅・↑縺ｩ</p>
-                </div>
-                <div id="addonList" class="option-list"></div>
-              </div>
-
-              <div class="section-block">
-                <div class="section-block__head">
-                  <h3 class="section-block__title">蛻･騾碑ｲｻ逕ｨ <span class="section-block__title-jp">Extra</span></h3>
-                  <p class="section-block__desc">迢ｬ閾ｪ繝峨Γ繧､繝ｳ蛻ｩ逕ｨ繝ｻSTUDIO蛻ｩ逕ｨ譁・/p>
-                </div>
-                <div id="extraList" class="option-list"></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="panel panel--main">
-            <div class="panel__head">
-              <span class="panel__step">Step 3</span>
-              <h2 class="panel__title">縺皮嶌隲・・螳ｹ <span class="section-block__title-jp">Contact</span></h2>
-            </div>
-            <div class="panel__body panel__body--stack">
-              <label class="field">
-                <span class="field__label">縺雁錐蜑・/span>
-                <input id="customerName" class="field__input" type="text" placeholder="螻ｱ逕ｰ 螟ｪ驛・>
-              </label>
-              <label class="field">
-                <span class="field__label">莨夂､ｾ蜷・/ 螻句捷</span>
-                <input id="customerCompany" class="field__input" type="text" placeholder="譬ｪ蠑丈ｼ夂､ｾNOFT">
-              </label>
-              <label class="field">
-                <span class="field__label">陬懆ｶｳ縺励◆縺・・螳ｹ</span>
-                <textarea id="customerMessage" class="field__textarea" rows="5" placeholder="蜿り・↓縺励※縺ｻ縺励＞繧ｵ繧､繝医∝・髢句ｸ梧悍譎よ悄縲∫嶌隲・＠縺溘＞縺薙→縺ｪ縺ｩ"></textarea>
-              </label>
-            </div>
-          </section>
-
-          <section class="panel panel--result" id="resultPanel">
-            <div class="panel__head panel__head--summary">
-              <span class="panel__step">Result</span>
-              <h2 class="panel__title">讎らｮ苓ｦ狗ｩ阪ｊ <span class="section-block__title-jp">Estimate</span></h2>
-            </div>
-            <div class="panel__body panel__body--stack">
-              <div class="summary-card">
-                <div class="summary-card__label">迴ｾ蝨ｨ縺ｮ隕狗ｩ阪ｊ</div>
-                <div class="summary-card__plan" id="summaryPlan"></div>
-                <div class="summary-card__price" id="summaryTotal">ﾂ･0</div>
-                <div class="summary-card__sub" id="summaryMeta">遞取栢 ﾂ･0</div>
-              </div>
-
-              <div class="breakdown">
-                <div class="breakdown__title">蜀・ｨｳ</div>
-                <div id="breakdownList" class="breakdown__list"></div>
-              </div>
-
-              <div class="notice">豁｣蠑上↑縺願ｦ狗ｩ阪ｊ縺ｯ繝偵い繝ｪ繝ｳ繧ｰ蠕後↓縺疲｡亥・縺励∪縺吶・/div>
-
-              <div class="action-stack">
-                <button id="downloadPdfBtn" class="action-btn action-btn--primary" type="button">
-                  <span class="action-btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                      <path d="M12 3v10m0 0 4-4m-4 4-4-4M5 15v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>PDF縺ｧ菫晏ｭ・/span>
-                </button>
-                <button id="copyEstimateBtn" class="action-btn" type="button">
-                  <span class="action-btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                      <rect x="9" y="9" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                      <path d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                    </svg>
-                  </span>
-                  <span>隕狗ｩ阪ｊ蜀・ｮｹ繧偵さ繝斐・</span>
-                </button>
-                <button id="lineBtn" class="action-btn action-btn--line" type="button">
-                  <span class="action-btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                      <path d="M12 3.6c-5 0-9 3.25-9 7.25 0 3.58 3.2 6.54 7.53 7.12l-1.18 2.93 3.54-2.64h.61c4.97 0 9-3.25 9-7.25s-4.03-7.41-9-7.41Z" fill="currentColor"/>
-                      <circle cx="9" cy="11.1" r="1.1" fill="#ffffff"/>
-                      <circle cx="12" cy="11.1" r="1.1" fill="#ffffff"/>
-                      <circle cx="15" cy="11.1" r="1.1" fill="#ffffff"/>
-                    </svg>
-                  </span>
-                  <span>LINE縺ｧ逶ｸ隲・☆繧・/span>
-                </button>
-                <button id="contactBtn" class="action-btn action-btn--contact" type="button">
-                  <span class="action-btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                      <path d="M4 7.5 12 13l8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                      <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-                    </svg>
-                  </span>
-                  <span>縺雁撫縺・粋繧上○縺ｸ騾ｲ繧</span>
-                </button>
-                <button id="resetBtn" class="action-btn action-btn--ghost" type="button">
-                  <span class="action-btn__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" role="img" focusable="false">
-                      <path d="M6 8.5A7 7 0 1 1 7.8 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                      <path d="M6 4.8v3.9h3.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>蜀・ｮｹ繧偵Μ繧ｻ繝・ヨ</span>
+              <div class="plan-grid plan-grid--single">
+                <button type="button" class="plan-card is-active plan-card--static">
+                  <span class="plan-card__chip">ベース</span>
+                  <h3 class="plan-card__title">基本制作費</h3>
+                  <div class="plan-card__price">¥100,000</div>
+                  <p class="plan-card__lead">オリジナルサイト制作の基本費用</p>
                 </button>
               </div>
-              <p class="action-note">LINE繝ｻ縺雁撫縺・粋繧上○縺ｯ繝懊ち繝ｳ繧呈款縺吶→蜀・ｮｹ縺瑚・蜍輔〒繧ｳ繝斐・縺輔ｌ縺ｾ縺吶らｧｻ蜍募・縺ｧ縺昴・縺ｾ縺ｾ雋ｼ繧贋ｻ倥￠縺ｦ縺皮嶌隲・￥縺縺輔＞縲・/p>
             </div>
-          </section>
+
+            <div class="section-block">
+              <div class="section-block__head">
+                <h3 class="section-block__title">サイト規模 <span class="section-block__title-jp">Scale</span></h3>
+                <p class="section-block__desc">近い構成を選択</p>
+              </div>
+              <div id="pageCountList" class="plan-grid"></div>
+            </div>
+          </div>
         </section>
-      </main>
-    </div>
+
+        <section class="panel panel--main">
+          <div class="panel__head">
+            <span class="panel__step">Step 2</span>
+            <h2 class="panel__title">機能と追加項目</h2>
+          </div>
+          <div class="panel__body panel__body--stack">
+            <div class="section-block">
+              <div class="section-block__head">
+                <h3 class="section-block__title">機能追加 <span class="section-block__title-jp">Function</span></h3>
+                <p class="section-block__desc">必要な機能のみ追加</p>
+              </div>
+              <div id="featureList" class="option-list"></div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-block__head">
+                <h3 class="section-block__title">追加項目 <span class="section-block__title-jp">Option</span></h3>
+                <p class="section-block__desc">追加ページ・文章整理など</p>
+              </div>
+              <div id="addonList" class="option-list"></div>
+            </div>
+
+            <div class="section-block">
+              <div class="section-block__head">
+                <h3 class="section-block__title">別途費用 <span class="section-block__title-jp">Extra</span></h3>
+                <p class="section-block__desc">独自ドメイン利用・STUDIO利用料</p>
+              </div>
+              <div id="extraList" class="option-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel panel--main">
+          <div class="panel__head">
+            <span class="panel__step">Step 3</span>
+            <h2 class="panel__title">ご相談内容 <span class="section-block__title-jp">Contact</span></h2>
+          </div>
+          <div class="panel__body panel__body--stack">
+            <label class="field">
+              <span class="field__label">お名前</span>
+              <input id="customerName" class="field__input" type="text" placeholder="山田 太郎">
+            </label>
+            <label class="field">
+              <span class="field__label">会社名 / 屋号</span>
+              <input id="customerCompany" class="field__input" type="text" placeholder="株式会社NOFT">
+            </label>
+            <label class="field">
+              <span class="field__label">補足したい内容</span>
+              <textarea id="customerMessage" class="field__textarea" rows="5" placeholder="参考にしてほしいサイト、公開希望時期、相談したいことなど"></textarea>
+            </label>
+          </div>
+        </section>
+        <section class="panel panel--result" id="resultPanel">
+          <div class="panel__head panel__head--summary">
+            <span class="panel__step">Result</span>
+            <h2 class="panel__title">概算見積り <span class="section-block__title-jp">Estimate</span></h2>
+          </div>
+          <div class="panel__body panel__body--stack">
+            <div class="summary-card">
+              <div class="summary-card__label">現在の見積り</div>
+              <div class="summary-card__plan" id="summaryPlan"></div>
+              <div class="summary-card__price" id="summaryTotal">¥0</div>
+              <div class="summary-card__sub" id="summaryMeta">税抜 ¥0</div>
+            </div>
+
+            <div class="breakdown">
+              <div class="breakdown__title">内訳</div>
+              <div id="breakdownList" class="breakdown__list"></div>
+            </div>
+
+            <div class="notice">正式なお見積りはヒアリング後にご案内します。</div>
+
+            <div class="action-stack">
+              <button id="downloadPdfBtn" class="action-btn action-btn--primary" type="button">
+                <span class="action-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M12 3v10m0 0 4-4m-4 4-4-4M5 15v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>PDFで保存</span>
+              </button>
+              <button id="copyEstimateBtn" class="action-btn" type="button">
+                <span class="action-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <rect x="9" y="9" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span>見積り内容をコピー</span>
+              </button>
+              <button id="lineBtn" class="action-btn action-btn--line" type="button">
+                <span class="action-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M12 3.6c-5 0-9 3.25-9 7.25 0 3.58 3.2 6.54 7.53 7.12l-1.18 2.93 3.54-2.64h.61c4.97 0 9-3.25 9-7.25s-4.03-7.41-9-7.41Z" fill="currentColor"/>
+                    <circle cx="9" cy="11.1" r="1.1" fill="#ffffff"/>
+                    <circle cx="12" cy="11.1" r="1.1" fill="#ffffff"/>
+                    <circle cx="15" cy="11.1" r="1.1" fill="#ffffff"/>
+                  </svg>
+                </span>
+                <span>LINEで相談する</span>
+              </button>
+              <button id="contactBtn" class="action-btn action-btn--contact" type="button">
+                <span class="action-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M4 7.5 12 13l8-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="3.5" y="5.5" width="17" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+                <span>お問い合わせへ進む</span>
+              </button>
+              <button id="resetBtn" class="action-btn action-btn--ghost" type="button">
+                <span class="action-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M6 8.5A7 7 0 1 1 7.8 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M6 4.8v3.9h3.9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>内容をリセット</span>
+              </button>
+            </div>
+            <p class="action-note">LINE・お問い合わせはボタンを押すと内容が自動でコピーされます。移動先でそのまま貼り付けてご相談ください。</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
 
     <footer class="site-footer">
       <div class="site-footer__inner">
@@ -204,15 +202,14 @@
       </div>
     </footer>
   </div>
-
   <div class="sticky-summary" id="stickySummary">
     <div class="sticky-summary__inner">
       <div class="sticky-summary__meta">
-        <span class="sticky-summary__label">讎らｮ苓ｦ狗ｩ阪ｊ</span>
+        <span class="sticky-summary__label">概算見積り</span>
         <span class="sticky-summary__plan" id="stickySummaryPlan"></span>
       </div>
-      <div class="sticky-summary__price" id="stickySummaryTotal">ﾂ･0</div>
-      <button id="jumpToResultBtn" class="sticky-summary__btn" type="button">隕狗ｩ阪ｊ隧ｳ邏ｰ繧定ｦ九ｋ</button>
+      <div class="sticky-summary__price" id="stickySummaryTotal">¥0</div>
+      <button id="jumpToResultBtn" class="sticky-summary__btn" type="button">見積り詳細を見る</button>
     </div>
   </div>
 
@@ -222,37 +219,37 @@
     <div class="print-sheet__head">
       <div>
         <div class="print-sheet__brand">NOFT Design Works</div>
-        <h1 class="print-sheet__title">讎らｮ苓ｦ狗ｩ肴嶌</h1>
+        <h1 class="print-sheet__title">概算見積書</h1>
       </div>
       <div class="print-sheet__meta" id="printDate"></div>
     </div>
     <div class="print-sheet__total">
-      <div class="print-sheet__total-label">讎らｮ怜粋險茨ｼ育ｨ手ｾｼ・・/div>
+      <div class="print-sheet__total-label">概算合計（税込）</div>
       <div class="print-sheet__total-value" id="printTotal"></div>
       <div class="print-sheet__total-sub" id="printPlan"></div>
     </div>
     <div class="print-sheet__section">
-      <div class="print-sheet__section-title">蜀・ｨｳ</div>
+      <div class="print-sheet__section-title">内訳</div>
       <table class="print-table">
         <thead>
           <tr>
-            <th>鬆・岼</th>
-            <th>蜀・ｮｹ</th>
-            <th>驥鷹｡・/th>
+            <th>項目</th>
+            <th>内容</th>
+            <th>金額</th>
           </tr>
         </thead>
         <tbody id="printTableBody"></tbody>
       </table>
     </div>
     <div class="print-sheet__section">
-      <div class="print-sheet__section-title">逶ｸ隲・Γ繝｢</div>
+      <div class="print-sheet__section-title">相談メモ</div>
       <div class="print-sheet__message" id="printMessage"></div>
     </div>
     <p class="print-sheet__note">
-      譛ｬ譖ｸ縺ｯ隕狗ｩ阪ｊ繧ｷ繝溘Η繝ｬ繝ｼ繧ｷ繝ｧ繝ｳ縺ｫ繧医ｋ讎らｮ礼ｵ先棡縺ｧ縺吶よｭ｣蠑上↑縺願ｦ狗ｩ阪ｊ縺ｯ繝偵い繝ｪ繝ｳ繧ｰ蠕後↓縺疲｡亥・縺・◆縺励∪縺吶・    </p>
+      本書は見積りシミュレーションによる概算結果です。正式なお見積りはヒアリング後にご案内いたします。
+    </p>
   </section>
 
   <script src="./script.js"></script>
 </body>
 </html>
-

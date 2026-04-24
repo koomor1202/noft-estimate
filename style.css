@@ -1557,3 +1557,98 @@ body {
   height: auto;
 }
 
+
+button,
+input,
+textarea {
+  color: inherit;
+}
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.site-header {
+  transition: transform 0.35s ease, background 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+}
+
+.site-header.is-hidden {
+  transform: translateY(calc(-100% - 1px));
+}
+
+.noft-back-to-top {
+  position: fixed;
+  right: clamp(14px, 2vw, 24px);
+  bottom: clamp(88px, 8vw, 104px);
+  z-index: 9998;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: #111111;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.noft-back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.noft-back-to-top__arrow-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noft-back-to-top__arrow {
+  width: 9px;
+  height: 9px;
+  border-right: 1px solid rgba(5, 7, 10, 0.8);
+  border-top: 1px solid rgba(5, 7, 10, 0.8);
+  transform: rotate(-45deg);
+  margin-bottom: 4px;
+}
+
+.noft-back-to-top__line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(180deg, rgba(5, 7, 10, 0.78), rgba(5, 7, 10, 0.18));
+}
+
+.noft-back-to-top__label {
+  font-family: "Sora", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .noft-back-to-top {
+    right: 14px;
+    bottom: 92px;
+    gap: 5px;
+  }
+
+  .noft-back-to-top__arrow {
+    width: 8px;
+    height: 8px;
+    margin-bottom: 3px;
+  }
+
+  .noft-back-to-top__line {
+    height: 34px;
+  }
+
+  .noft-back-to-top__label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+}

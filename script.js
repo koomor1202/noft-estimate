@@ -658,3 +658,60 @@ window.addEventListener("resize", syncStickySummaryVisibility);
 initializeState();
 render();
 syncStickySummaryVisibility();
+setupAutoHideHeader();
+renderBackToTop();
+
+function setupAutoHideHeader() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  let lastY = window.scrollY;
+
+  function syncHeader() {
+    const currentY = window.scrollY;
+    const scrollingDown = currentY > lastY + 8;
+    const scrollingUp = currentY < lastY - 8;
+
+    if (currentY <= 80 || scrollingUp) {
+      header.classList.remove("is-hidden");
+    } else if (scrollingDown) {
+      header.classList.add("is-hidden");
+    }
+
+    lastY = currentY;
+  }
+
+  window.addEventListener("scroll", syncHeader, { passive: true });
+  window.addEventListener("resize", syncHeader);
+  syncHeader();
+}
+
+function renderBackToTop() {
+  if (document.getElementById("noftBackToTop")) return;
+
+  const button = document.createElement("button");
+  button.className = "noft-back-to-top";
+  button.id = "noftBackToTop";
+  button.setAttribute("aria-label", "ページトップへ戻る");
+  button.innerHTML = `
+    <div class="noft-back-to-top__arrow-wrap">
+      <div class="noft-back-to-top__arrow"></div>
+      <div class="noft-back-to-top__line"></div>
+    </div>
+    <span class="noft-back-to-top__label">TOP</span>
+  `;
+
+  document.body.appendChild(button);
+
+  function syncBackToTop() {
+    button.classList.toggle("is-visible", window.scrollY > 300);
+  }
+
+  window.addEventListener("scroll", syncBackToTop, { passive: true });
+  window.addEventListener("resize", syncBackToTop);
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  syncBackToTop();
+}
